@@ -10,11 +10,11 @@ const pool = new Pool({
 
 app.get("/", async (req, res) => {
   try {
-    const result = await pool.query("SELECT NOW()");
-    res.send("Backend + DB connected at " + result.rows[0].now);
+    await pool.query("SELECT 1");
+    res.send("DB OK");
   } catch (err) {
-    console.error(err);
-    res.status(500).send("DB connection failed");
+    console.error("DB ERROR:", err);
+    res.status(500).send(err.message);
   }
 });
 
