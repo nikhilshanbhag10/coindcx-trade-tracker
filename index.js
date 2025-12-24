@@ -1,5 +1,7 @@
+
 const express = require("express");
 const { Pool } = require("pg");
+console.log("DATABASE_URL =", process.env.DATABASE_URL);
 
 const app = express();
 
